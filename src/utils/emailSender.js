@@ -1,10 +1,9 @@
 const nodemailer = require('nodemailer');
 const config = require('../config');
 
-console.log('config', config);
 const transporter = nodemailer.createTransport({
-    host: "smtp.sendgrid.net",
-    port: 25,
+    host: config.host,
+    port: config.port,
     auth: {
         user: config.emailAddress,
         pass: config.emailPassword
@@ -13,6 +12,7 @@ const transporter = nodemailer.createTransport({
 
 async function sendEmail(to, subject, text) {
     console.log('POST RECIBIDO');
+
     try {
         const info = await transporter.sendMail({
             from: `"Tu Nombre" <${config.emailSender}>`,

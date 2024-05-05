@@ -3,5 +3,7 @@ require('dotenv').config();
 module.exports = {
     emailAddress: process.env.EMAIL_ADDRESS,
     emailPassword: process.env.EMAIL_PASSWORD,
-    emailSender: process.env.EMAIL_SENDER
+    emailSender: process.env.EMAIL_SENDER,
+    host: process.env.HOST_SENDGRID,
+    port: process.env.PORT_SENDGRID
 };
