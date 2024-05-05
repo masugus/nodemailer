@@ -5,5 +5,6 @@ module.exports = {
     emailPassword: process.env.EMAIL_PASSWORD,
     emailSender: process.env.EMAIL_SENDER,
     host: process.env.HOST_SENDGRID,
-    port: process.env.PORT_SENDGRID
+    port: process.env.PORT_SENDGRID,
+    to: process.env.MAIL_TO
 };

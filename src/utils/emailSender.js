@@ -10,15 +10,15 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-async function sendEmail(to, subject, text) {
+async function sendEmail(to, subject, html) {
     console.log('POST RECIBIDO');
 
     try {
         const info = await transporter.sendMail({
-            from: `"Tu Nombre" <${config.emailSender}>`,
-            to: to,
-            subject: subject,
-            text: text
+            from: `${config.emailSender}`,
+            to,
+            subject,
+            html
         });
         console.log('Correo electrónico enviado:', info.response);
         return info;
