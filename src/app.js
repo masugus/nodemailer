@@ -7,10 +7,17 @@ const app = express();
 
 // Habilitar CORS solo para bodamiamiycuba.com
 const corsOptions = {
-    origin: 'https://www.bodamiamiycuba.com',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+    origin: function (origin, callback) {
+        const allowedOrigins = ['https://bodamiamiycuba.com', 'https://www.bodamiamiycuba.com', 'https://masugus.github.io/hosting/', 'https://masugus.github.io/hosting'];
+        if (allowedOrigins.includes(origin)) {
+          callback(null, true)
+        } else {
+          callback(new Error('Not allowed by CORS'))
+        }
+      },    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   }
-  app.use(cors(corsOptions));
+
+app.use(cors(corsOptions));
 // Middleware
 app.use(bodyParser.json());
 
