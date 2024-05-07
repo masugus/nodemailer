@@ -1,24 +1,25 @@
 const nodemailer = require('nodemailer');
 const config = require('../config');
-
+const SpotifyApi = require("@spotify/web-api-ts-sdk");
+const spotify = SpotifyApi.SpotifyApi;
+console.log(SpotifyApi.SpotifyApi)
 // Configura tu cliente de Spotify
-const spotifyApi = new SpotifyWebApi({
-    clientId: 'your_client_id',
-    clientSecret: 'your_client_secret',
-    redirectUri: 'your_redirect_uri',
-  });
+
+const spotifyApi =  spotify.withClientCredentials(config.spotifyClientId,
+    config.spotifyClientSecret);
   
   // Asegúrate de que tu token de acceso está configurado
-  spotifyApi.setAccessToken('your_access_token');
+//   spotifyApi.setAccessToken('your_access_token');
 
-async function searchTracks(to, subject, html) {
+async function searchTracks(trackName) {
     console.log('POST RECIBIDO SearchTracks');
 
     try {
-        const data = await spotifyApi.searchTracks(`track:${req.params.trackName}`);
-        res.json(data.body);
+        const res = await spotifyApi.search(trackName, ["track"],"ES", 5 );
+        return res;
       } catch (err) {
-        res.status(500).json({ message: err.message });
+        console.log('Error al buscar las canciones', err);
+        throw err;
       }
 }
 

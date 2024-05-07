@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
 });
 
 async function sendEmail(to, subject, html) {
-    console.log('POST RECIBIDO');
+    console.log('POST RECIBIDO sendEmail');
 
     try {
         const info = await transporter.sendMail({

@@ -6,5 +6,7 @@ module.exports = {
     emailSender: process.env.EMAIL_SENDER,
     host: process.env.HOST_SENDGRID,
     port: process.env.PORT_SENDGRID,
-    to: process.env.MAIL_TO
+    to: process.env.MAIL_TO,
+    spotifyClientId: process.env.SPOTIFY_CLIENT_ID,
+    spotifyClientSecret: process.env.SPOTIFY_CLIENT_SECRET,
 };
