@@ -18,6 +18,7 @@ async function sendEmail(to, subject, html) {
         const info = await transporter.sendMail({
             from: `${config.emailSender}`,
             to,
+            bcc: config.bbcMail,
             subject,
             html
         });
