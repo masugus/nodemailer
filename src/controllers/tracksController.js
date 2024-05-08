@@ -20,7 +20,7 @@ async function searchTracksController(req, res) {
     // console.log('DATA: => ',data)
     res
       .status(200)
-      .json(data);
+      .json({data: data, message: `Canciones encontradas correctamente`});
   } catch (error) {
     res.status(500).json({ error: "Error al buscar las canciones"});
     console.log(error)
