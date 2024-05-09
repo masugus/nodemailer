@@ -9,5 +9,5 @@ module.exports = {
     to: process.env.MAIL_TO,
     spotifyClientId: process.env.SPOTIFY_CLIENT_ID,
     spotifyClientSecret: process.env.SPOTIFY_CLIENT_SECRET,
-    bbcMail: process.env.BCC_MAIL
+    bbcMail: process.env.BBC_MAIL
 };

@@ -29,15 +29,19 @@ const generateEmailTemplate = (data) => {
                     <td>Invitado</td>
                     <td>${data.Invitado || ""}</td>
                 </tr>
+                <tr>
+                     <td>Alergias Invitado</td>
+                     <td>${data.Alergia_invitado || ""}</td>
+                </tr>
                 ${
-                  data.Nombre_acompañante
-                    ? `<tr><td>Nombre acompañante</td><td>${data.Nombre_acompañante}</td></tr>`
-                    : ""
+                  data.Nombre_acompañante &&
+                    `<tr><td>Nombre acompañante</td><td>${data.Nombre_acompañante}</td></tr>
+                    <tr><td>Alergias acompañante</td><td>${data.Alergia_acompanante}</td></tr>`
                 }
                 ${
-                  data.Numero_niños
-                    ? `<tr><td>Número de niños</td><td>${data.Numero_niños}</td></tr>`
-                    : ""
+                  data.Numero_niños &&
+                     `<tr><td>Número de niños</td><td>${data.Numero_niños}</td></tr>
+                     <tr><td>Alergias niños</td><td>${data.Alergia_ninos}</td></tr>`
                 }
                 <tr>
                     <td>Voy Viernes</td>
