@@ -5,7 +5,6 @@ const config = require("../config");
 async function sendTestEmail(req, res) {
   console.log("body del request", req.body);
 
-  const subject = "Respuesta al Formulario de la boda";
   const to = config.to;
   let body;
   try {
@@ -15,6 +14,7 @@ async function sendTestEmail(req, res) {
     // Si el parse falla, usa el body original
     body = req.body;
   }
+  const subject = `Respuesta al Formulario de la boda del invitado: ${body.Invitado}   // #${Math.random() * Date.now() * 435346 * 4564578}`;
   const html = generateEmailTemplate(body);
 console.log('html', html);
   try {
